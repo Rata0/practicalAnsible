@@ -1,0 +1,1 @@
+ansible-playbook -i hosts.ini create_user.yml --user=ansible

@@ -7,13 +7,15 @@
       ansible.builtin.apt: 
         name: git 
         state: present
-    
-    - name: Copy SSH keys
+
+    - name: сopy id_rsa.pub key
       ansible.builtin.copy:
-        src: 
-          - "./ssh_keys/id_rsa"
-          - "./ssh_keys/id_rsa.pub"
-        dest: "~/.ssh/"
-        mode: 
-          - '0600'
-          - '0644'
+        src: "./ssh_keys/id_rsa.pub"
+        dest: "~/.ssh/id_rsa.pub"
+        mode: '0644'
+    
+    - name: сopy id_rsa key
+      ansible.builtin.copy:
+        src: "./ssh_keys/id_rsa"
+        dest: "~/.ssh/id_rsa"
+        mode: '0644'

@@ -1,1 +1,3 @@
 ansible-playbook -i hosts.ini create_user.yml --user=ansible
+
+ansible-playbook -i hosts.ini install_git.yml --user=ansible

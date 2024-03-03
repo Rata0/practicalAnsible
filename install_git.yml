@@ -1,0 +1,19 @@
+--- 
+- hosts: all 
+  become: true 
+ 
+  tasks: 
+    - name: install git 
+      ansible.builtin.apt: 
+        name: git 
+        state: present
+    
+    - name: Copy SSH keys
+      ansible.builtin.copy:
+        src: 
+          - "./ssh_keys/id_rsa"
+          - "./ssh_keys/id_rsa.pub"
+        dest: "~/.ssh/"
+        mode: 
+          - '0600'
+          - '0644'

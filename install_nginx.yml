@@ -8,4 +8,16 @@
       ansible.builtin.apt:
         name: nginx
         state: present
-  
+
+    - name: configuration file copying 
+      ansible.builtin.copy:
+        src: ansible.iphilka.ru.conf
+        dest: /etc/nginx/sites-available/ansible.iphilka.ru.conf
+        mode: '0644'
+
+    - name: link creation in sites-enabled
+      ansible.builtin.file:
+        src: /etc/nginx/sites-available/ansible.iphilka.ru.conf
+        dest: /etc/nginx/sites-enabled/ansible.iphilka.ru.conf
+        state: link
+        mode: '0644'

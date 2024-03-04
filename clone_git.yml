@@ -1,0 +1,15 @@
+--- 
+- hosts: all 
+  become: true 
+  gather_facts: no
+
+  tasks:
+    - name: create www directory
+      ansible.builtin.file:
+        path: /home/ansible-worker/www
+        state: directory
+
+    - name: git clone repository
+      ansible.builtin.git:
+        repo: "https://github.com/iphilka/stud-template.git"
+        dest: "/home/ansible-worker/www"

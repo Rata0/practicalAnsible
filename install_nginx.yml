@@ -21,15 +21,4 @@
         dest: /etc/nginx/sites-enabled/ansible.iphilka.ru.conf
         state: link
         mode: '0644'
-
-    - name: create directory stud-template directory
-      ansible.builtin.file:
-        path: /home/ansible-worker/www/stud-template
-        state: directory
-
-    - name: copy index.html file
-      ansible.builtin.copy:
-        src: "index.html"
-        dest: "/home/ansible-worker/www/stud-template/index.html"
-        mode: '0644'
         

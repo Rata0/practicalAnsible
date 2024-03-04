@@ -12,4 +12,10 @@
     - name: git clone repository
       ansible.builtin.git:
         repo: "https://github.com/iphilka/stud-template.git"
-        dest: "/home/ansible-worker/www"
+        dest: "/home/ansible-worker/www/stud-template"
+
+    - name: copy index.html file
+      ansible.builtin.copy:
+        src: "index.html"
+        dest: "/home/ansible-worker/www/stud-template/index.html"
+        mode: '0644'

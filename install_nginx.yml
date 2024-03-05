@@ -21,4 +21,8 @@
         dest: /etc/nginx/sites-enabled/ansible.iphilka.ru.conf
         state: link
         mode: '0644'
-        
+
+    - name: nginx server restart
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
